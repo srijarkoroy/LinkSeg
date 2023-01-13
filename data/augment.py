@@ -78,7 +78,9 @@ def augment_data(images, masks, save_path, augment=True):
 
             index += 1
 
-# # if __name__ == "__main__":
+## Usage ##
+
+# if __name__ == "__main__":
 #     """ Seeding """
 #     np.random.seed(42)
 
