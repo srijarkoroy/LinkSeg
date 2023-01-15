@@ -207,7 +207,6 @@ class LinkNet(nn.Module):
         e4 = self.encoder4(e3)
 
         # Decoder blocks
-        #d4 = e3 + self.decoder4(e4)
         d4 = e3 + self.decoder4(e4)
         d3 = e2 + self.decoder3(d4)
         d2 = e1 + self.decoder2(d3)
@@ -225,10 +224,10 @@ class LinkNet(nn.Module):
 
 ## Usage ##
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    noise = torch.randn(2, 3, 512, 512)
+#     noise = torch.randn(2, 3, 512, 512)
 
-    model = LinkNet()
-    print("Model:", model)
-    print("\nOutput:", model(noise).shape)
+#     model = LinkNet()
+#     print("Model:", model)
+#     print("\nOutput:", model(noise).shape)
