@@ -21,7 +21,7 @@ def load_data(path):
     train_y = sorted(glob(os.path.join(path, "training", "1st_manual", "*.gif")))
 
     test_x = sorted(glob(os.path.join(path, "test", "images", "*.tif")))
-    test_y = sorted(glob(os.path.join(path, "test", "1st_manual", "*.gif")))
+    test_y = sorted(glob(os.path.join(path, "test", "mask", "*.gif")))
 
     return (train_x, train_y), (test_x, test_y)
 
