@@ -165,19 +165,29 @@ class LinkNet(nn.Module):
 
         super(LinkNet, self).__init__()
 
-        base = resnet.resnet18(pretrained=True)
+        # base = resnet.resnet18(pretrained=True)
 
-        self.in_block = nn.Sequential(
-            base.conv1,
-            base.bn1,
-            base.relu,
-            base.maxpool
-        )
+        # self.in_block = nn.Sequential(
+        #     base.conv1,
+        #     base.bn1,
+        #     base.relu,
+        #     base.maxpool
+        # )
 
-        self.encoder1 = base.layer1
-        self.encoder2 = base.layer2
-        self.encoder3 = base.layer3
-        self.encoder4 = base.layer4
+        # self.encoder1 = base.layer1
+        # self.encoder2 = base.layer2
+        # self.encoder3 = base.layer3
+        # self.encoder4 = base.layer4
+
+        self.conv1 = nn.Conv2d(3, 64, 7, 2, 3, bias=False)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.relu = nn.ReLU(inplace=True)
+        self.maxpool = nn.MaxPool2d(3, 2, 1)
+
+        self.encoder1 = Encoder(64, 64, 3, 1, 1)
+        self.encoder2 = Encoder(64, 128, 3, 2, 1)
+        self.encoder3 = Encoder(128, 256, 3, 2, 1)
+        self.encoder4 = Encoder(256, 512, 3, 2, 1)
 
         self.decoder1 = Decoder(64, 64, 3, 1, 1, 0)
         self.decoder2 = Decoder(128, 64, 3, 2, 1, 1)
@@ -198,7 +208,10 @@ class LinkNet(nn.Module):
     def forward(self, x):
 
         # Initial block
-        x = self.in_block(x)
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
 
         # Encoder blocks
         e1 = self.encoder1(x)
@@ -224,10 +237,10 @@ class LinkNet(nn.Module):
 
 ## Usage ##
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
-#     noise = torch.randn(2, 3, 512, 512)
+    noise = torch.randn(2, 3, 512, 512)
 
-#     model = LinkNet()
-#     print("Model:", model)
-#     print("\nOutput:", model(noise).shape)
+    model = LinkNet()
+    print("Model:", model)
+    print("\nOutput:", model(noise).shape)
