@@ -237,10 +237,10 @@ class LinkNet(nn.Module):
 
 ## Usage ##
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    noise = torch.randn(2, 3, 512, 512)
+#     noise = torch.randn(2, 3, 512, 512)
 
-    model = LinkNet()
-    print("Model:", model)
-    print("\nOutput:", model(noise).shape)
+#     model = LinkNet()
+#     print("Model:", model)
+#     print("\nOutput:", model(noise).shape)
