@@ -1,5 +1,9 @@
 import streamlit as st
+
 from PIL import Image
+import time
+import urllib.request
+
 
 opt = st.sidebar.selectbox("Main",("Home", "Architecture", "Visualizer"), label_visibility="hidden")
 
@@ -29,7 +33,7 @@ if opt == "Home":
     if obj:
         st.write("Implementations of a Semantic Segmentation Network to accurately segment the Blood Vessels present in the retina for proper treatment and reduction of operator fatigue.")
 
-if opt == "Architecture":
+elif opt == "Architecture":
 
     arch = Image.open("utils/assets/arch.png")
     st.image(arch, caption="LinkNet")
@@ -207,3 +211,33 @@ class LinkNet(nn.Module):
         return y
             """
             st.code(code, language='python')
+
+elif opt == "Visualizer":
+
+    upload_method = st.selectbox("How do you want to upload the image for segmentation?\n", ('Please Select', 'Upload image via link', 'Upload image from device'))
+
+    if upload_method == 'Upload image from device':
+
+        file = st.file_uploader('Select', type = ['jpg', 'png', 'jpeg'])
+        st.set_option('deprecation.showfileUploaderEncoding', False)
+        if file is not None:
+            image = Image.open(file)
+
+    elif upload_method == 'Upload image via link':
+
+        try:
+            img = st.text_input('Enter the Image Address')
+            image = Image.open(urllib.request.urlopen(img))
+            
+        except:
+            if st.button('Submit'):
+                show = st.error("Please Enter a valid Image Address!")
+                time.sleep(4)
+                show.empty()
+
+    try:
+        if image is not None:
+            st.image(image, width = 600, caption = 'Uploaded Image')
+    
+    except Exception as e:
+        pass
