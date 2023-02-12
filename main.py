@@ -35,12 +35,15 @@ if opt == "Home":
 
 elif opt == "Architecture":
 
-    arch = Image.open("utils/assets/arch.png")
+    arch = Image.open("utils/assets/linknet.jpeg")
     st.image(arch, caption="LinkNet")
 
     encoder = st.checkbox("Encoder")
 
     if encoder:
+
+        enc = Image.open("utils/assets/encoder.jpeg")
+        st.image(enc, caption="Encoder Blocks")
         
         html_temp = """
             <div>
@@ -80,6 +83,9 @@ class Encoder(nn.Module):
     decoder = st.checkbox("Decoder")
 
     if decoder:
+
+        dec = Image.open("utils/assets/decoder.jpeg")
+        st.image(dec, caption="Encoder Blocks")
         
         html_temp = """
             <div>
