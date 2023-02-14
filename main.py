@@ -33,6 +33,11 @@ if opt == "Home":
     if obj:
         st.write("Implementations of a Semantic Segmentation Network to accurately segment the Blood Vessels present in the retina for proper treatment and reduction of operator fatigue.")
 
+    res = st.checkbox("Check out the Results of our Implementation!")
+
+    if res:
+        st.image("utils/assets/results.png", caption="Results")
+
 elif opt == "Architecture":
 
     arch = Image.open("utils/assets/linknet.jpeg")
