@@ -14,6 +14,7 @@ class Train(nn.Module):
         This class is used for Training a LinkNet model.
         
         Parameters:
+
         - dice: DiceLoss object
         - iou: IoU object
         """
@@ -26,6 +27,7 @@ class Train(nn.Module):
 
         """
         Parameters:
+        
         - model: Model Object/LinkNet Object
         - loader: DataLoader Object
         - optimizer: optimizer Object
@@ -39,8 +41,6 @@ class Train(nn.Module):
 
         epoch_loss1 = 0.0
         epoch_loss2 = 0.0
-
-        #with tqdm(train_loader, unit="batch") as tepoch:
 
         for x,y in loader:
 
@@ -61,16 +61,12 @@ class Train(nn.Module):
             epoch_loss1 += loss1.item()
             epoch_loss2 += loss2.item()
 
-            #tepoch.set_postfix(loss=epoch_loss1, accuracy=100. * accuracy)
-            #tepoch.set_postfix(loss=epoch_loss2, accuracy=100. * accuracy)
-
         epoch_loss1 = epoch_loss1/len(loader)
         epoch_loss2 = epoch_loss2/len(loader)
 
         print("Train Dice Loss: {}, ".format(epoch_loss1),"Train IoU Loss: {}, ".format(epoch_loss2))
 
         return epoch_loss1, epoch_loss2
-
 
 
 class Evaluate(nn.Module):
@@ -83,6 +79,7 @@ class Evaluate(nn.Module):
         This class is used for Evaluating a LinkNet model.
         
         Parameters:
+
         - dice: DiceLoss object
         - iou: IoU object
         """
@@ -95,6 +92,7 @@ class Evaluate(nn.Module):
 
         """
         Parameters:
+
         - model: Model Object/LinkNet Object
         - loader: DataLoader Object
         """
