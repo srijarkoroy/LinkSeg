@@ -1,6 +1,6 @@
 from inference import LinkNetSeg
 
-# Initializing the SegRetino Inference
+# Initializing the LinkSeg Inference
 lns = LinkNetSeg("misc/inputs/input1.png")
 
 # Running inference
