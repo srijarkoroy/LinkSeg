@@ -1,9 +1,11 @@
-import streamlit as st
+from inference import LinkNetSeg
 
+import streamlit as st
 from PIL import Image
 import time
 import urllib.request
-
+import cv2
+import numpy as np
 
 opt = st.sidebar.selectbox("Main",("Home", "Architecture", "Visualizer"), label_visibility="hidden")
 
@@ -248,7 +250,26 @@ elif opt == "Visualizer":
 
     try:
         if image is not None:
-            st.image(image, width = 600, caption = 'Uploaded Image')
-    
+            st.image(image, width = 500, caption = 'Uploaded Image')
+            image = np.array(image)
+            test_image = image[:, :, ::-1].copy()
+
+            test_path = "misc/streamlit_uploads/input.png"
+            cv2.imwrite(test_path, test_image)
+
+            # Initializing the LinkSeg Inference
+            lns = LinkNetSeg(test_path)
+
+            # Running inference
+            lns.inference(set_weight_dir = 'linknet.pth', path = 'misc/streamlit_downloads/output.png', blend_path = 'misc/streamlit_downloads/blend.png')
+
+            if st.checkbox("Mask"):
+                mask_image = Image.open("misc/streamlit_downloads/output.png")
+                st.image(mask_image, width = 500, caption = 'Mask Image')
+
+            if st.checkbox("Blend"):
+                blend_image = Image.open("misc/streamlit_downloads/blend.png")
+                st.image(blend_image, width = 500, caption = 'Mask Image')
+
     except Exception as e:
         pass
