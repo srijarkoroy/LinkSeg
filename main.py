@@ -250,7 +250,7 @@ elif opt == "Visualizer":
 
     try:
         if image is not None:
-            st.image(image, width = 500, caption = 'Uploaded Image')
+            st.image(image, width = 250, caption = 'Uploaded Image')
             image = np.array(image)
             test_image = image[:, :, ::-1].copy()
 
@@ -265,11 +265,11 @@ elif opt == "Visualizer":
 
             if st.checkbox("Mask"):
                 mask_image = Image.open("misc/streamlit_downloads/output.png")
-                st.image(mask_image, width = 500, caption = 'Mask Image')
+                st.image(mask_image, width = 250, caption = 'Mask Image')
 
             if st.checkbox("Blend"):
                 blend_image = Image.open("misc/streamlit_downloads/blend.png")
-                st.image(blend_image, width = 500, caption = 'Mask Image')
+                st.image(blend_image, width = 250, caption = 'Mask Image')
 
     except Exception as e:
         pass
