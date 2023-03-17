@@ -38,18 +38,18 @@ if opt == "Home":
     res = st.checkbox("Check out the Results of our Implementation!")
 
     if res:
-        st.image("utils/assets/results.png", caption="Results")
+        st.image("misc/results/results.png", caption="Results")
 
 elif opt == "Architecture":
 
-    arch = Image.open("utils/assets/linknet.jpeg")
+    arch = Image.open("misc/architecture/linknet.jpeg")
     st.image(arch, caption="LinkNet")
 
     encoder = st.checkbox("Encoder")
 
     if encoder:
 
-        enc = Image.open("utils/assets/encoder.jpeg")
+        enc = Image.open("misc/architecture/encoder.jpeg")
         st.image(enc, caption="Encoder Blocks")
         
         html_temp = """
@@ -91,7 +91,7 @@ class Encoder(nn.Module):
 
     if decoder:
 
-        dec = Image.open("utils/assets/decoder.jpeg")
+        dec = Image.open("misc/architecture/decoder.jpeg")
         st.image(dec, caption="Encoder Blocks")
         
         html_temp = """
