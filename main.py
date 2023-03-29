@@ -1,15 +1,10 @@
+import streamlit as st
+
 from inference import LinkNetSeg
 
 from utils.home import *
 from utils.architecture import *
 from utils.visualizer import *
-
-import streamlit as st
-from PIL import Image
-import time
-import urllib.request
-import cv2
-import numpy as np
 
 
 opt = st.sidebar.selectbox("Main",("Home", "Architecture", "Visualizer"), label_visibility="hidden")
