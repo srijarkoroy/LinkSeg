@@ -6,7 +6,7 @@ import time
 import urllib.request
 import numpy as np
 
-def uploader():
+def image_uploader():
 
     upload_method = st.selectbox("How do you want to upload the image for segmentation?\n", ('Please Select', 'Upload image via link', 'Upload image from device'))
 
