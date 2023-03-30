@@ -7,7 +7,7 @@ from utils.architecture import *
 from utils.visualizer import *
 
 
-opt = st.sidebar.selectbox("Main",("Home", "Architecture", "Visualizer"), label_visibility="hidden")
+opt = st.sidebar.selectbox("Main",("Home", "Architecture", "Visualizer", "Train"), label_visibility="hidden")
 
 if opt == "Home":
 
@@ -23,7 +23,7 @@ elif opt == "Visualizer":
 
     try:
 
-        input_image = uploader()
+        input_image = image_uploader()
 
         if input_image is not None:
 
