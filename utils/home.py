@@ -5,7 +5,7 @@ def home():
     html_temp = """
         <div>
         <h2></h2>
-        <center><h3>LinkSeg</h3></center>
+        <center><h2>LinkSeg</h2></center>
         </div>
         <hr>
         <div style = "text-align:justify">
