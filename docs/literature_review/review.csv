@@ -1,0 +1,22 @@
+Paper,Author(s),Dataset,Method,Metrics,Year
+Ridge-Based Vessel Segmentation in Color Images of the Retina,Joes Staal et. al.,DRIVE,Ridge-Based,0.9441 (Accuracy),2004
+Segmentation of retinal blood vessels by combining the detection of centerlines and morphological reconstruction,Mendonca et. al.,DRIVE,Morphological Processing,0.9452 (Accuracy),2006
+Morphology Approach for Features Extraction in Retinal Images for Diabetic Retionopathy Diagnosis,Ibrahim Abdurrazaq et. al.,DRIVE,Mathematical morphology theory and intensity transformation algorithm,TPF value of 0.8214 (True Positive Fraction),2008
+Retinal Vessel Segmentation Using the 2-D Morlet Wavelet and Neural Network,R.Ghaderi et. al.,DRIVE,Morlet transform,0.90% to 0.9668% of the area under the ROC curve,2008
+Automatic Blood Vessel Segmentation in Color Images of Retina,A. OSAREH and B. SHADGAR,Custom Dataset,Octave UNet,95.24% (Accuracy),2009
+A New Supervised Method for Blood Vessel Segmentation in Retinal Images by Using Gray-Level and Moment Invariants-Based Features,Diego Marin et. al.,DRIVE,Neural Network (NN) scheme for pixel classification and moment invariants-based features for pixel representation,0.9452 (Accuracy),2010
+Segmentation of retinal blood vessels using the radial projection and semi-supervised approach,Xinge You et. al.,DRIVE and STARE,Vessel segmentation,0.9434 on DRIVE and 0.9497 on STARE,2011
+An Ensemble Classification-Based Approach Applied to Retinal Blood Vessel Segmentation,Fraz et. al.,DRIVE and STARE and CHASE-DB,Ensemble system of bagged and boosted decision trees and utilizes a feature vector based on the orientation analysis of gradient vector field with Morphological Transformation and line strength measures with Gabor filter,0.9480 and 0.9534 and 0.9469 respectively(Accuracy),2012
+An effective retinal blood vessel segmentation method using multi-scale line detection,Nguyen et. al.,STARE Dataset,Multi-Scale Line Detection,0.9326 (Accuracy),2013
+Methods for the detection of blood vessels in retinal fundus images and reduction of false-positive pixels around the optic nerve head,Ashish Kumar Dhara et. al.,DRIVE Dataset,Multiscale vesselness measures and Gabor filters,0.9616 (F1 Score),2014
+Retinal vessels segmentation based on level set and region growing,Yu Qian Zhao et. al.,DRIVE and STARE databases,Contrast-limited adaptive histogram equalization (CLAHE) followed by a 2D Gabor wavelet to enhance the contrast of the retinal image, 94.77% on the DRIVE database and 95.09% on the STARE database (Accuracy),2014
+Retinal Vessel Segmentation Using Deep Neural Networks,Martina Melinscak et. al.,DRIVE,DNNs or CNNs which instead of subsampling or down-sampling layers have a maxpooling layer (MPCNNs),0.9466 with 0.7276 and 0.0215 TPR and FPR,2015
+Trainable COSFIRE filters for vessel delineation with application to retinal images,G Azzopardi et. al.,DRIVE,B-COSFIRE filter,0.9442 (Accuracy),2015
+Iterative vessel segmentation of fundus images,Roychowdhury et. al.,DRIVE,Unsupervised Iterative Segmentation with tophat reconstruction and global thresholding,0.9494 (Accuracy),2015
+DeepVessel: Retinal Vessel Segmentation via Deep Learning and Conditional Random Field,Huazhu Fu et. al.,DRIVE and STARE and CHASE_DB1,Multi-level CNN with Conditional Random Fields,0.9523 (Accuracy),2016
+Retinal Blood Vessel Segmentation by Support Vector Machine Classification,Eva Tuba et. al.,DRIVE,Overlapping-block-based supervised machine learning approach for blood vessel segmentation,0.9538 (Accuracy) and 0.9773 (Specificity),2017
+Retina Blood Vessel Segmentation Using A U-Net Based Convolutional Neural Network,Wang Xiancheng et. al.,DRIVE,U-Net with specific data augmentations,0.9790 (AUC ROC),2018
+A Fundus Retinal Vessels Segmentation Scheme Based on the Improved Deep Learning U-Net Model,Xiuqin Pan et. al.,DRIVE,Improved U-Net,96.50% (Segmentation Accuracy),2019
+Retinal blood vessel segmentation based on heuristic image analysis,Maja Braovic et. al.,DRIVE and STARE,Modified SUSAN edge detector and shape analysis,96.33% and 96.10% (Accuracy) respectively,2019
+Accurate Retinal Vessel Segmentation via Octave Convolution Neural Network,Zhun Fan et. al.,DRIVE and STARE and CHASE DB1 and and HRF,Octave UNet,0.9663 (Accuracy) on DRIVE Dataset,2019
+Construction of Retinal Vessel Segmentation Models Based on Convolutional Neural Network,Qiangguo Jin et. al.,DRIVE and STARE,Deformable-ConvNet,Accuracy of 0.9628/0.9690,2020
