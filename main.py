@@ -6,10 +6,12 @@ from linkseg import LinkNet, DiceLoss, IoU, Train, Evaluate
 from utils.home import *
 from utils.review import *
 from utils.architecture import *
+from utils.workflow import *
+from utils.experiments import *
 from utils.visualizer import *
 from utils.trainer import *
 
-opt = st.sidebar.selectbox("Main",("Home", "Literature Review", "Architecture", "Visualizer", "Train"), label_visibility="hidden")
+opt = st.sidebar.selectbox("Main",("Home", "Literature Review", "Architecture", "Workflow", "Experiments", "Visualizer", "Train"), label_visibility="hidden")
 
 if opt == "Home":
 
@@ -23,6 +25,13 @@ elif opt == "Architecture":
 
     architecture()
 
+elif opt == "Workflow":
+
+    workflow()
+
+elif opt == 'Experiments':
+
+    experiments()
 
 elif opt == "Visualizer":
 
