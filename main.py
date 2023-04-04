@@ -10,8 +10,9 @@ from utils.workflow import *
 from utils.experiments import *
 from utils.visualizer import *
 from utils.trainer import *
+from utils.results import *
 
-opt = st.sidebar.selectbox("Main",("Home", "Literature Review", "Architecture", "Workflow", "Experiments", "Visualizer", "Train"), label_visibility="hidden")
+opt = st.sidebar.selectbox("Main",("Home", "Literature Review", "Architecture", "Workflow", "Experiments", "Visualizer", "Train", "Results and Analysis"), label_visibility="hidden")
 
 if opt == "Home":
 
@@ -92,3 +93,7 @@ elif opt == "Train":
     
     except Exception as e:
         pass
+
+elif opt == "Results and Analysis":
+
+    results()
