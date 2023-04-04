@@ -3,6 +3,17 @@ from PIL import Image
 
 def architecture():
 
+    html_temp = """
+        <div>
+        <h2></h2>
+        <center><h3>Architecture</h3></center>
+        <hr>
+        </div>
+    """
+
+    st.markdown(html_temp, unsafe_allow_html=True)
+    st.header("")
+
     arch = Image.open("misc/architecture/linknet.jpeg")
     st.image(arch, caption="LinkNet")
 
