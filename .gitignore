@@ -137,3 +137,6 @@ weights/
 dataset/
 datasets/
 new_data/
+
+# node
+node_modules/
