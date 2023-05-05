@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
+import streamlit.components.v1 as html
 
 from inference import LinkNetSeg
 
@@ -11,8 +13,21 @@ from utils.experiments import *
 from utils.visualizer import *
 from utils.trainer import *
 from utils.results import *
+from utils.documents import *
 
-opt = st.sidebar.selectbox("Main",("Home", "Literature Review", "Architecture", "Workflow", "Experiments", "Visualizer", "Train", "Results and Analysis"), label_visibility="hidden")
+# opt = st.sidebar.selectbox("Main",("Home", "Literature Review", "Architecture", "Workflow", "Experiments", "Visualizer", "Train", "Results and Analysis", "Documents"), label_visibility="hidden")
+
+with st.sidebar:
+    opt = option_menu("LinkSeg", ["Home", "Literature Review", "Architecture", "Workflow", "Experiments", "Visualizer", "Train", "Results and Analysis", "Documents"],
+                         icons=['house', 'book', 'diagram-3', 'arrow-bar-right','kanban','camera fill','activity','bar-chart-line', 'archive'],
+                         menu_icon="app-indicator", default_index=0,
+                         styles={
+        "container": {"padding": "5!important", "background-color": "#0e117"},
+        "icon": {"color": "#08ECAB", "font-size": "25px"}, 
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#262730"},
+        "nav-link-selected": {"background-color": "#262730"},
+    }
+    )
 
 if opt == "Home":
 
@@ -97,3 +112,7 @@ elif opt == "Train":
 elif opt == "Results and Analysis":
 
     results()
+
+elif opt == "Documents":
+
+    documents()
