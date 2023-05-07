@@ -25,10 +25,13 @@ def documents():
     st.markdown(html_temp, unsafe_allow_html=True)
     st.header("")
 
-    st.write("Check out our project documentation!")
+    st.write("Project Report")
+    PDF("docs/embeds/report.pdf")
+    st.header("")
 
-    if st.checkbox("Project Report"):
-        PDF("docs/embeds/report.pdf")
+    st.write("Research Paper")
+    PDF("docs/embeds/paper.pdf")
+    st.header("")
 
-    if st.checkbox("Research Paper"):
-        PDF("docs/embeds/paper.pdf")
+    st.write("Slides")
+    PDF("docs/embeds/slides.pdf")
