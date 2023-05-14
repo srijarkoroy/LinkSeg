@@ -53,8 +53,8 @@ class PixelAccuracy(nn.Module):
 
         for i in range (inputs.shape[0]):
 
-            input_val = inputs[i, :].view(-1).detach().cpu().numpy().argmax(0)
-            target_val = targets[i, :].view(-1).detach().cpu().numpy().argmax(0)
+            input_val = inputs[i, :, :, :].view(-1).detach().cpu().numpy().argmax(0)
+            target_val = targets[i, :, :, :].view(-1).detach().cpu().numpy().argmax(0)
 
             intersection = (input_val == target_val).sum()
 
