@@ -70,7 +70,7 @@ class Train(nn.Module):
         epoch_loss2 = epoch_loss2/len(loader)
         pixel_accuracy = pixel_accuracy/len(loader)
 
-        print("Train Dice Loss: {}, ".format(epoch_loss1),"Train IoU Loss: {}, ".format(epoch_loss2))
+        print("Train Dice Loss: {}, ".format(epoch_loss1),"Train IoU Loss: {}, ".format(epoch_loss2), "Pixel Accuracy: {}".format(pixel_accuracy))
 
         return epoch_loss1, epoch_loss2
 
