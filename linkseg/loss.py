@@ -58,7 +58,8 @@ class PixelAccuracy(nn.Module):
 
             intersection = (inputs == targets).sum()
 
-            dim1, dim2 = inputs.shape
+            dim1 = inputs.shape[0]
+            dim2 = inputs.shape[1]
             acc += intersection/(dim1 * dim2)
         
         pixel_accuracy = acc/inputs.shape[0]
