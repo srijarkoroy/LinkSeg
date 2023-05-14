@@ -47,7 +47,7 @@ class PixelAccuracy(nn.Module):
     def __init__(self, weight=None, size_average=True):
         super(PixelAccuracy, self).__init__()
 
-    def forward(self, inputs, target):
+    def forward(self, inputs, targets):
 
         acc = 0
 
