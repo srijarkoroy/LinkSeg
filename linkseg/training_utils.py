@@ -1,12 +1,12 @@
 import torch
 import torch.nn as nn
 
-from .loss import DiceLoss, IoU
+from .loss import DiceLoss, IoU, PixelAccuracy
 
 
 class Train(nn.Module):
 
-    def __init__(self, dice, iou):
+    def __init__(self, dice, iou, acc):
 
         super().__init__()
         
@@ -17,10 +17,12 @@ class Train(nn.Module):
 
         - dice: DiceLoss object
         - iou: IoU object
+        - acc: PixelAccuracy object
         """
 
         self.loss_fn1 = dice
         self.loss_fn2 = iou
+        self.pixel_acc = acc
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     def forward(self, model, loader, optimizer):
@@ -41,6 +43,7 @@ class Train(nn.Module):
 
         epoch_loss1 = 0.0
         epoch_loss2 = 0.0
+        pixel_accuracy = 0.0
 
         for x,y in loader:
 
@@ -50,8 +53,9 @@ class Train(nn.Module):
             optimizer.zero_grad()
             y_pred = model(x)
 
-            score1,loss1 = self.loss_fn1(y_pred, y)
-            score2,loss2 = self.loss_fn2(y_pred, y)
+            score1, loss1 = self.loss_fn1(y_pred, y)
+            score2, loss2 = self.loss_fn2(y_pred, y)
+            accuracy = self.pixel_acc(y_pred, y)
 
             loss1.backward(retain_graph = True)
             loss2.backward(retain_graph = True)
@@ -60,9 +64,11 @@ class Train(nn.Module):
 
             epoch_loss1 += loss1.item()
             epoch_loss2 += loss2.item()
+            pixel_accuracy += accuracy
 
         epoch_loss1 = epoch_loss1/len(loader)
         epoch_loss2 = epoch_loss2/len(loader)
+        pixel_accuracy = pixel_accuracy/len(loader)
 
         print("Train Dice Loss: {}, ".format(epoch_loss1),"Train IoU Loss: {}, ".format(epoch_loss2))
 

@@ -42,6 +42,28 @@ class IoU(nn.Module):
 
         return iou, 1 - iou
 
+class PixelAccuracy(nn.Module):
+
+    def __init__(self, weight=None, size_average=True):
+        super(PixelAccuracy, self).__init__()
+
+    def forward(self, inputs, target):
+
+        acc = 0
+
+        for i in range (inputs.shape[0]):
+
+            inputs = inputs[i, :, :, :].clone().detach().cpu().numpy().argmax(0)
+            targets = targets[i, :, :, :].clone().detach().cpu().numpy().argmax(0)
+
+            intersection = (inputs == targets).sum()
+
+            dim1, dim2 = inputs.shape
+            acc += intersection/(dim1 * dim2)
+        
+        pixel_accuracy = acc/inputs.shape[0]
+        return pixel_accuracy
+
 
 ## Usage ##
 
@@ -50,3 +72,5 @@ class IoU(nn.Module):
 #     score, loss = loss_dice(output_var, target_var)
 #     loss_iou = IoU()
 #     score, loss = loss_iou(output_var, target_var)
+    # acc_pixel = PixelAccuracy()
+    # pixel_accuracy = acc_pixel(output_var, target_var)
